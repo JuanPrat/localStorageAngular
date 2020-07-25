@@ -1,26 +1,21 @@
-<div class="btn-group">
-    <button class="btn btn-primary" (click)="guardarCliente()">Guardar clientes</button>
-    <button class="btn btn-primary" (click)="guardarProductos()">Guardar productos</button>
-    <button class="btn btn-danger" (click)="leer()">Leer</button>
-    <button class="btn btn-danger" (click)="eliminarClientes()">Eliminar clientes</button>
-    <button class="btn btn-danger" (click)="eliminarProductos()">Eliminar productos</button>
-    <button class="btn btn-danger" (click)="eliminarTodo()">Eliminar todo</button>
-</div>
-
-
-<div class="container clientesContenedor">
-    <div *ngFor="let cliente of clientes">
-        <p>Cliente: {{cliente.nombre}}</p>
-        <p>Apellido: {{cliente.apellido}}</p>
-        <p>Edad{{cliente.edad}}</p>
-        <hr>
+<div class="container">
+    <div class="col-sm-5 mb-5 mt-5">
+        <form action="" class="formGroup">
+            <input type="text" class="form-control" placeholder="Busque un cliente">
+            <button class="btn btn-primary mt-4" routerLink="/agregarClientes/new">Agregar un cliente nuevo</button>
+        </form>    
     </div>
-</div>
-
-<div class="container productosContenedor">
-    <div *ngFor="let producto of productos">
-        <p>Producto: {{producto.nombre}}</p>
-        <p>Precio: {{producto.precio}}</p>
-        <hr>
+        <div class="row" >
+            <div class="col-sm-3 mt-3" *ngFor="let cliente of clientes">
+                <div class="card" >
+                    <div class="card-body">
+                    <h5 class="card-title">{{cliente.nombre +" "+ cliente.apellido}}</h5>
+                    <h6 class="card-subtitle">{{cliente.id}}</h6>
+                    <p class="card-text">{{cliente.direccion}}</p>
+                    <a href="#" class="card-link" routerLink="/agregarClientes/{{cliente.id}}">Editar </a>
+                    <a href="#" class="card-link">Pedidos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>

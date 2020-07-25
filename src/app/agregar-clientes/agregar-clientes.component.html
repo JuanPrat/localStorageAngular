@@ -1,0 +1,22 @@
+<div class="container mt-5">
+    <form [formGroup]="formulario">
+        <div class="form-group">
+            <label for="">Numero identificacion</label>
+            <input type="text" class="form-control" formControlName="identificacion">
+        
+           <label for="">Nombre</label>
+           <input type="text" class="form-control" formControlName="nombre">
+              
+            <label for="">Apellido</label>
+            <input type="text" class="form-control" formControlName="apellido">
+
+            <label for="">Direccion</label>
+            <textarea cols="30" rows="5" class="form-control" formControlName="direccion"></textarea>
+        </div>
+    </form>
+    <button *ngIf="editarClienteFlag == false" [disabled]="!formulario.valid" class="btn btn-primary" (click)="agregarCliente()">Agregar</button>
+    <button *ngIf="editarClienteFlag == true"[disabled]="!formulario.valid" class="btn btn-success" (click)="agregarCliente()">Editar</button>
+    <div *ngIf='!formulario.valid' class="alert alert-danger" role="alert">
+        Completa el formulario antes de continuar.
+    </div>
+</div>

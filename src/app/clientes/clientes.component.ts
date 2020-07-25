@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../models/clientes';
 import { Producto } from '../../models/productos'; 
 import { LocalStorageService } from 'src/services/local-storage.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-clientes',
@@ -16,23 +17,11 @@ export class ClientesComponent implements OnInit {
   constructor(private localStorageService: LocalStorageService) { }
 
   ngOnInit(): void {
-
+    this.clientes = this.localStorageService.clientesEnLocalStorage;
   }
 
   guardarCliente() {
-    this.clientes.push(
-      {
-        nombre: "carmen",
-        apellido: "garcia",
-        edad: "34"
-      },
-      {
-        nombre: "juan",
-        apellido: "sosa",
-        edad: "23"
-      }
-    )
-    localStorage.setItem("clientes", JSON.stringify(this.clientes));
+    
   }
 
   eliminarClientes() {
