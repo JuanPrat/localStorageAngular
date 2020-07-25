@@ -42,7 +42,7 @@ export class AgregarClientesComponent implements OnInit {
       let cliente:Cliente = this.localStorageService.obtenerClienteId(parametro)
       this.editarClienteFlag = true;
       this.formulario.controls["identificacion"].setValue(cliente.id);
-      this.formulario.controls["identificacion"].disable(true);
+      this.formulario.controls["identificacion"].disable({onlySelf: true});
       this.formulario.controls['nombre'].setValue(cliente.nombre);
       this.formulario.controls['apellido'].setValue(cliente.apellido);
       this.formulario.controls['direccion'].setValue(cliente.direccion);
