@@ -20,8 +20,25 @@ export class ClientesComponent implements OnInit {
     this.clientes = this.localStorageService.clientesEnLocalStorage;
   }
 
-  guardarCliente() {
-    
+  buscarCliente(event) {
+    this.clientes = this.localStorageService.clientesEnLocalStorage
+    .filter(cliente => {
+      return cliente.nombre
+      .toLocaleLowerCase()
+      .includes(event.target.value) 
+      ||
+      cliente.id
+      .toLocaleLowerCase()
+      .includes(event.target.value)
+      ||
+      cliente.apellido
+      .toLocaleLowerCase()
+      .includes(event.target.value)
+      ||
+      cliente.direccion
+      .toLocaleLowerCase()
+      .includes(event.target.value)
+     });
   }
 
   eliminarClientes() {

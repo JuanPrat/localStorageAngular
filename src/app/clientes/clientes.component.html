@@ -1,7 +1,7 @@
 <div class="container">
     <div class="col-sm-5 mb-5 mt-5">
         <form action="" class="formGroup">
-            <input type="text" class="form-control" placeholder="Busque un cliente">
+            <input type="text" class="form-control" (input)="buscarCliente($event)" placeholder="Buscar">
             <button class="btn btn-primary mt-4" routerLink="/agregarClientes/new">Agregar un cliente nuevo</button>
         </form>    
     </div>

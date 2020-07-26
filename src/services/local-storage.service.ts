@@ -16,7 +16,16 @@ export class LocalStorageService {
 
   guardarClienteNuevoEnLocalStorage(cliente:Cliente) {
     var clientes = this.clientesEnLocalStorage;
+    clientes.filter(clienteLocal => clienteLocal.id == cliente.id)
+    .map(clienteActualizar => {
+      clienteActualizar.id = cliente.id
+      clienteActualizar.nombre = cliente.nombre
+      clienteActualizar.apellido = cliente.apellido
+      clienteActualizar.direccion = cliente.direccion
+    })
+    debugger
     clientes.push(cliente);
+    debugger
     localStorage.setItem("clientes", JSON.stringify(clientes));
   }
 

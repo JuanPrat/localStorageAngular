@@ -62,4 +62,8 @@ export class AgregarClientesComponent implements OnInit {
   }
   }
 
+  editarCliente(){
+    
+  }
+
 }
