@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/services/local-storage.service';
+import { LocalStorageService } from 'src/services/clientes-local-storage.service';
 
 @Component({
   selector: 'app-encabezado',

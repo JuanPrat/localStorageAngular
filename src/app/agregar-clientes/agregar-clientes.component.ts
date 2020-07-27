@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cliente } from 'src/models/clientes';
-import { LocalStorageService } from 'src/services/local-storage.service';
+import { LocalStorageService } from 'src/services/clientes-local-storage.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -63,7 +63,16 @@ export class AgregarClientesComponent implements OnInit {
   }
 
   editarCliente(){
-    
+    if(this.formulario.valid){
+    let clienteNuevo:Cliente = {
+      id:this.formulario.controls["identificacion"].value,
+      nombre:this.formulario.controls["nombre"].value,
+      apellido:this.formulario.controls["apellido"].value,
+      direccion:this.formulario.controls["direccion"].value
+    }
+    this.localStorageService.editarClienteLocalStorage(clienteNuevo);
+    this.formulario.reset();
+  }
   }
 
 }

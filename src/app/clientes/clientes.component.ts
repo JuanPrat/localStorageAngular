@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from '../../models/clientes';
 import { Producto } from '../../models/productos'; 
-import { LocalStorageService } from 'src/services/local-storage.service';
+import { LocalStorageService } from 'src/services/clientes-local-storage.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -46,36 +46,6 @@ export class ClientesComponent implements OnInit {
     this.reiniciarArregloClientes()
   }
 
-  guardarProductos() {
-    this.productos.push(
-      {
-        nombre: 'maiz',
-        precio: 15
-      },
-      {
-        nombre: 'masa',
-        precio: 5
-      }
-    )
-    localStorage.setItem("productos", JSON.stringify(this.clientes));
-  }
-
-  eliminarProductos() {
-    localStorage.removeItem('productos')
-    this.reiniciarArregloProductos()
-  }
-
-  leer() {
-    this.clientes = this.localStorageService.clientesEnLocalStorage
-    this.productos = this.localStorageService.productosEnLocalStorage;
-  }
-
-  eliminarTodo() {
-    this.eliminarClientes()
-    this.eliminarProductos()
-    this.reiniciarArregloClientes()
-    this.reiniciarArregloProductos()
-  }
 
   reiniciarArregloClientes() {
     this.clientes = new Array<Cliente>()

@@ -18,7 +18,7 @@
     [disabled]="!formulario.valid" class="btn btn-primary" (click)="agregarCliente()">Agregar</button>
     
     <button *ngIf="editarClienteFlag == true"
-    [disabled]="!formulario.valid" class="btn btn-success" (click)="agregarCliente()">Editar</button>
+    [disabled]="!formulario.valid" class="btn btn-success" (click)="editarCliente()">Editar</button>
     
     <div *ngIf='!formulario.valid' class="alert alert-danger" role="alert">
         Completa el formulario antes de continuar.

@@ -5,6 +5,7 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { ProductosComponent } from './productos/productos.component';
 import { AgregarClientesComponent } from './agregar-clientes/agregar-clientes.component';
 import { HomeComponent } from './home/home.component';
+import { AgregarProductosComponent } from './agregar-productos/agregar-productos.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,9 @@ const routes: Routes = [
   },
   {
     path: 'agregarClientes/:parametro', component: AgregarClientesComponent
+  },
+  {
+    path: 'agregarProductos', component:AgregarProductosComponent
   }
 ];
 

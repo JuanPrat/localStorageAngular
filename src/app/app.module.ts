@@ -11,6 +11,7 @@ import { AgregarClientesComponent } from './agregar-clientes/agregar-clientes.co
 import { HomeComponent } from './home/home.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
+import { AgregarProductosComponent } from './agregar-productos/agregar-productos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,8 @@ import {ActivatedRoute} from '@angular/router';
     PedidosComponent,
     ProductosComponent,
     AgregarClientesComponent,
-    HomeComponent
+    HomeComponent,
+    AgregarProductosComponent
   ],
   imports: [
     BrowserModule,

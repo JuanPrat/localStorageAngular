@@ -16,17 +16,22 @@ export class LocalStorageService {
 
   guardarClienteNuevoEnLocalStorage(cliente:Cliente) {
     var clientes = this.clientesEnLocalStorage;
-    clientes.filter(clienteLocal => clienteLocal.id == cliente.id)
-    .map(clienteActualizar => {
-      clienteActualizar.id = cliente.id
-      clienteActualizar.nombre = cliente.nombre
-      clienteActualizar.apellido = cliente.apellido
-      clienteActualizar.direccion = cliente.direccion
-    })
-    debugger
     clientes.push(cliente);
-    debugger
-    localStorage.setItem("clientes", JSON.stringify(clientes));
+    localStorage.setItem('clientes', JSON.stringify(clientes));
+  }
+
+    
+
+  editarClienteLocalStorage(cliente:Cliente){
+    var clientes = this.clientesEnLocalStorage;
+    clientes.filter(clienteLocal => clienteLocal.id == cliente.id)
+      .map(clienteActualizar => {
+        clienteActualizar.id = cliente.id
+        clienteActualizar.nombre = cliente.nombre
+        clienteActualizar.apellido = cliente.apellido
+        clienteActualizar.direccion = cliente.direccion
+      });
+      localStorage.setItem('clientes', JSON.stringify(clientes));
   }
 
   obtenerClienteId(id:string){
@@ -34,10 +39,5 @@ export class LocalStorageService {
     clientes = JSON.parse(localStorage.getItem('clientes'));
     debugger
     return clientes.filter(cliente => cliente.id === id )[0];
-  }
-
-  get productosEnLocalStorage(): Producto[] {
-    let productosEnLocalStorage = JSON.parse(localStorage.getItem('productos'));
-    return productosEnLocalStorage === null ? productosEnLocalStorage = new Array<Cliente>() : productosEnLocalStorage;
   }
 }

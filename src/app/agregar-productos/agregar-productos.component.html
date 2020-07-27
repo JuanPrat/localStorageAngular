@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <form [formGroup]="formulario">
+        <div class="form-group">
+            <label for="">Nombre del producto</label>
+            <input type="text" class="form-control" formControlName="nombre">
+        
+           <label for="">Codigo</label>
+           <input type="text" class="form-control" formControlName="codigo">
+              
+            <label for="">Descripcion</label>
+            <input type="text" class="form-control" formControlName="descripcion">
+
+            <label for="">Precio</label>
+            <input type="text" class="form-control" formControlName="precio">
+        </div>
+    </form>
+    <button  
+    [disabled]="!formulario.valid" class="btn btn-primary" (click)="agregarProducto()">Agregar</button>
+    
+    <button 
+    [disabled]="!formulario.valid" class="btn btn-success">Editar</button>
+    
+    <div *ngIf='!formulario.valid' class="alert alert-danger" role="alert">
+        Completa el formulario antes de continuar.
+    </div>
+</div>
